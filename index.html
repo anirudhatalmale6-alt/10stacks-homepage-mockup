@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 Stacks Research — Mockup</title>
+<style>
+  :root{
+    --cream:#EFEBE3;
+    --cream-2:#E7E2D8;
+    --ink:#14140F;
+    --ink-soft:#4a4a42;
+    --peri:#8E93D6;
+    --peri-soft:#AEB2E4;
+    --line:rgba(20,20,15,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1240px;margin:0 auto;padding:0 48px}
+
+  /* NAV */
+  header{padding:26px 0;border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:14px}
+  .logomark{width:46px;height:46px;position:relative;display:flex;align-items:center;font-weight:800;font-size:26px;letter-spacing:-2px}
+  .logomark .dot{width:26px;height:26px;border-radius:50%;background:var(--peri);position:absolute;right:-6px;mix-blend-mode:multiply}
+  .brand .name{line-height:1}
+  .brand .name b{font-weight:800;font-size:19px;letter-spacing:.5px}
+  .brand .name span{display:block;font-size:9.5px;letter-spacing:6px;color:var(--ink-soft);margin-top:3px}
+  .navlinks{display:flex;align-items:center;gap:40px}
+  .navlinks a{color:var(--ink);text-decoration:none;font-size:12px;letter-spacing:2.5px;font-weight:600}
+  .navlinks a:hover{color:var(--peri)}
+  .btn,.navlinks a.btn{background:var(--ink);color:var(--cream);padding:14px 24px;font-size:11px;letter-spacing:2.5px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:10px}
+  .btn:hover,.navlinks a.btn:hover{background:var(--peri);color:#fff}
+
+  /* HERO */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:82px 0 96px}
+  .hero h1{font-size:74px;line-height:.94;font-weight:800;letter-spacing:-1.5px}
+  .hero h1 .b{color:var(--peri)}
+  .hero .sub{margin-top:34px;font-size:17px;line-height:1.55;color:var(--ink-soft);font-weight:500}
+  .hero .sub span{display:block}
+  .hero .cta{margin-top:40px}
+  .heroart{position:relative;height:440px}
+  .petri{position:absolute;border-radius:50%;border:1.5px solid rgba(20,20,15,.35);background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.55),rgba(174,178,228,.12));box-shadow:inset 0 0 40px rgba(142,147,214,.15)}
+  .p1{width:290px;height:290px;left:20px;top:70px}
+  .p2{width:170px;height:170px;left:150px;bottom:0;background:radial-gradient(circle at 40% 35%,rgba(255,255,255,.6),rgba(255,255,255,.05))}
+  .glass{position:absolute;right:24px;top:20px;width:118px;height:360px;background:linear-gradient(160deg,rgba(142,147,214,.55),rgba(142,147,214,.28));border:1px solid rgba(142,147,214,.5);backdrop-filter:blur(2px)}
+  .stem{position:absolute;right:70px;top:80px;width:3px;height:300px;background:var(--ink);transform:rotate(9deg);transform-origin:bottom}
+  .leaf{position:absolute;width:60px;height:26px;background:var(--ink);border-radius:0 60% 0 60%}
+  .l1{right:118px;top:150px;transform:rotate(-28deg)}
+  .l2{right:40px;top:210px;transform:rotate(38deg);border-radius:60% 0 60% 0}
+  .l3{right:120px;top:250px;transform:rotate(-14deg)}
+
+  /* MARQUEE */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
+  .strip .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+  .strip span{font-size:12px;letter-spacing:3px;font-weight:600;color:var(--ink-soft)}
+
+  /* SECTION HEAD */
+  .shead{display:flex;justify-content:space-between;align-items:flex-end;padding:90px 0 34px}
+  .shead .eyebrow{font-size:11px;letter-spacing:4px;color:var(--peri);font-weight:700;margin-bottom:16px}
+  .shead h2{font-size:44px;font-weight:800;letter-spacing:-1px;line-height:1}
+  .shead a{color:var(--ink);font-size:12px;letter-spacing:2px;font-weight:600;text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:4px}
+
+  /* PRODUCT STACKS */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding-bottom:40px}
+  .card{background:var(--cream-2);padding:32px 30px 30px;display:flex;flex-direction:column;min-height:390px}
+  .card .bottle{height:190px;margin:6px auto 26px;width:96px;position:relative}
+  .bottle .body{position:absolute;bottom:0;width:96px;height:150px;border-radius:12px;background:linear-gradient(160deg,#fff,#e3e0f4);border:1px solid rgba(20,20,15,.12)}
+  .bottle .cap{position:absolute;top:0;left:50%;transform:translateX(-50%);width:44px;height:34px;background:var(--ink);border-radius:6px 6px 2px 2px}
+  .bottle .lbl{position:absolute;bottom:30px;width:96px;height:74px;background:rgba(142,147,214,.22);border-top:1px solid rgba(142,147,214,.5);border-bottom:1px solid rgba(142,147,214,.5);display:flex;align-items:center;justify-content:center;font-size:9px;letter-spacing:3px;color:var(--ink);font-weight:700}
+  .card h3{font-size:20px;font-weight:800;letter-spacing:-.3px;margin-bottom:8px}
+  .card p{font-size:13px;color:var(--ink-soft);line-height:1.5;flex:1}
+  .card .foot{display:flex;justify-content:space-between;align-items:center;margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+  .card .price{font-size:16px;font-weight:800}
+  .card .add{font-size:11px;letter-spacing:2px;font-weight:700;color:var(--peri)}
+
+  /* SPLIT / SCIENCE */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:90px;border-top:1px solid var(--line)}
+  .split .pane{padding:70px 56px}
+  .split .pane:first-child{border-right:1px solid var(--line)}
+  .split .eyebrow{font-size:11px;letter-spacing:4px;color:var(--peri);font-weight:700;margin-bottom:20px}
+  .split h2{font-size:34px;font-weight:800;letter-spacing:-.6px;line-height:1.05;margin-bottom:18px}
+  .split p{font-size:15px;color:var(--ink-soft);line-height:1.6;margin-bottom:26px}
+  .split .metric{display:flex;gap:44px;margin-top:30px}
+  .split .metric b{font-size:40px;font-weight:800;display:block;letter-spacing:-1px}
+  .split .metric small{font-size:11px;letter-spacing:2px;color:var(--ink-soft)}
+
+  /* JOURNAL */
+  .jgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding-bottom:30px}
+  .jcard .thumb{height:190px;background:linear-gradient(140deg,#dcd8ec,#efece4);margin-bottom:20px;position:relative;overflow:hidden}
+  .jcard .thumb .c{position:absolute;border-radius:50%;border:1.5px solid rgba(20,20,15,.3)}
+  .jcard .tag{font-size:10px;letter-spacing:3px;color:var(--peri);font-weight:700}
+  .jcard h4{font-size:18px;font-weight:700;letter-spacing:-.3px;margin:12px 0 8px;line-height:1.2}
+  .jcard p{font-size:13px;color:var(--ink-soft);line-height:1.5}
+
+  /* CTA BAND */
+  .band{background:var(--ink);color:var(--cream);margin-top:96px;padding:88px 0;text-align:center}
+  .band h2{font-size:52px;font-weight:800;letter-spacing:-1px;line-height:.98}
+  .band h2 .b{color:var(--peri-soft)}
+  .band p{margin:24px auto 38px;max-width:460px;font-size:15px;color:rgba(239,235,227,.7);line-height:1.6}
+  .band .btn{background:var(--cream);color:var(--ink)}
+  .band .btn:hover{background:var(--peri);color:#fff}
+
+  /* FOOTER */
+  footer{padding:70px 0 40px}
+  .fcols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:50px;border-bottom:1px solid var(--line)}
+  .fcols h5{font-size:11px;letter-spacing:3px;color:var(--ink-soft);font-weight:700;margin-bottom:20px}
+  .fcols a{display:block;color:var(--ink);text-decoration:none;font-size:13px;margin-bottom:12px;font-weight:500}
+  .fcols a:hover{color:var(--peri)}
+  .fcols .about p{font-size:13px;color:var(--ink-soft);line-height:1.6;margin-top:16px;max-width:280px}
+  .fbot{display:flex;justify-content:space-between;padding-top:26px;font-size:12px;color:var(--ink-soft);letter-spacing:1px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand">
+        <div class="logomark">10<span class="dot"></span></div>
+        <div class="name"><b>10 STACKS</b><span>R E S E A R C H</span></div>
+      </div>
+      <div class="navlinks">
+        <a href="#">SCIENCE</a>
+        <a href="#">STACKS</a>
+        <a href="#">RESEARCH</a>
+        <a href="#">ABOUT</a>
+        <a href="#">JOURNAL</a>
+        <a href="#" class="btn">ACCESS RESEARCH</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="wrap hero">
+  <div>
+    <h1>EVIDENCE BUILDS.<br><span class="b">UNDERSTANDING<br>ELEVATES.</span></h1>
+    <div class="sub">
+      <span>Clinical insights.</span>
+      <span>Methodical research.</span>
+      <span>Better outcomes.</span>
+    </div>
+    <a href="#" class="btn cta">ACCESS RESEARCH →</a>
+  </div>
+  <div class="heroart">
+    <div class="petri p1"></div>
+    <div class="petri p2"></div>
+    <div class="glass"></div>
+    <div class="stem"></div>
+    <div class="leaf l1"></div>
+    <div class="leaf l2"></div>
+    <div class="leaf l3"></div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <span>THIRD-PARTY TESTED</span>
+    <span>CLINICALLY DOSED</span>
+    <span>NSF CERTIFIED</span>
+    <span>FULL TRANSPARENCY</span>
+    <span>MADE IN THE USA</span>
+  </div>
+</div>
+
+<section class="wrap">
+  <div class="shead">
+    <div>
+      <div class="eyebrow">THE STACKS</div>
+      <h2>Formulated by evidence.</h2>
+    </div>
+    <a href="#">VIEW ALL PRODUCTS →</a>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="bottle"><div class="cap"></div><div class="body"></div><div class="lbl">FOUNDATION</div></div>
+      <h3>Foundation Stack</h3>
+      <p>Daily multi-nutrient base built on peer-reviewed dosing. The cornerstone of every protocol.</p>
+      <div class="foot"><div class="price">$48</div><div class="add">ADD TO CART +</div></div>
+    </div>
+    <div class="card">
+      <div class="bottle"><div class="cap"></div><div class="body"></div><div class="lbl">COGNITION</div></div>
+      <h3>Cognition Stack</h3>
+      <p>Nootropic complex for focus and clarity. Standardized actives, no proprietary blends.</p>
+      <div class="foot"><div class="price">$54</div><div class="add">ADD TO CART +</div></div>
+    </div>
+    <div class="card">
+      <div class="bottle"><div class="cap"></div><div class="body"></div><div class="lbl">RECOVERY</div></div>
+      <h3>Recovery Stack</h3>
+      <p>Sleep and repair support with clinically studied magnesium and adaptogen ratios.</p>
+      <div class="foot"><div class="price">$46</div><div class="add">ADD TO CART +</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="split">
+  <div class="pane">
+    <div class="eyebrow">TESTING & TRANSPARENCY</div>
+    <h2>Every batch. Every result. Published.</h2>
+    <p>We publish full third-party certificates of analysis for every production lot. No hidden fillers, no proprietary blends — just verifiable science you can read for yourself.</p>
+    <a href="#" class="btn">VIEW LAB RESULTS →</a>
+    <div class="metric">
+      <div><b>100%</b><small>BATCHES TESTED</small></div>
+      <div><b>0</b><small>PROPRIETARY BLENDS</small></div>
+      <div><b>27</b><small>ACTIVE COMPOUNDS</small></div>
+    </div>
+  </div>
+  <div class="pane" style="background:var(--cream-2)">
+    <div class="eyebrow">THE METHOD</div>
+    <h2>Research first. Formula second.</h2>
+    <p>Every ingredient earns its place through published clinical literature. We start with the evidence and reverse-engineer the formula — never the other way around.</p>
+    <p style="margin-bottom:0">Our research team reviews the standing body of trials, sets doses to studied ranges, and documents the rationale on every product page.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="shead">
+    <div>
+      <div class="eyebrow">THE JOURNAL</div>
+      <h2>Education, not marketing.</h2>
+    </div>
+    <a href="#">READ THE JOURNAL →</a>
+  </div>
+  <div class="jgrid">
+    <div class="jcard">
+      <div class="thumb"><div class="c" style="width:150px;height:150px;left:40px;top:30px"></div></div>
+      <div class="tag">FOUNDATIONS</div>
+      <h4>What "clinically dosed" actually means</h4>
+      <p>A plain-language guide to reading supplement labels and spotting under-dosing.</p>
+    </div>
+    <div class="jcard">
+      <div class="thumb"><div class="c" style="width:120px;height:120px;left:90px;top:50px;border-color:var(--peri)"></div></div>
+      <div class="tag">RESEARCH</div>
+      <h4>Magnesium forms, compared by absorption</h4>
+      <p>Glycinate, citrate, oxide — what the bioavailability data really shows.</p>
+    </div>
+    <div class="jcard">
+      <div class="thumb"><div class="c" style="width:170px;height:170px;left:20px;top:20px"></div></div>
+      <div class="tag">TRANSPARENCY</div>
+      <h4>How to read a certificate of analysis</h4>
+      <p>A walkthrough of every line on our published third-party lab reports.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>Build your stack on <span class="b">evidence.</span></h2>
+    <p>Join a brand that publishes its research and its results. Better inputs, better outcomes.</p>
+    <a href="#" class="btn">SHOP THE STACKS →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div class="about">
+        <div class="brand">
+          <div class="logomark">10<span class="dot"></span></div>
+          <div class="name"><b>10 STACKS</b><span>R E S E A R C H</span></div>
+        </div>
+        <p>Evidence-led wellness supplements. Every formula documented, every batch published.</p>
+      </div>
+      <div>
+        <h5>SHOP</h5>
+        <a href="#">All Stacks</a><a href="#">Foundation</a><a href="#">Cognition</a><a href="#">Recovery</a>
+      </div>
+      <div>
+        <h5>LEARN</h5>
+        <a href="#">The Journal</a><a href="#">Testing & Transparency</a><a href="#">Our Method</a><a href="#">About</a>
+      </div>
+      <div>
+        <h5>SUPPORT</h5>
+        <a href="#">FAQ</a><a href="#">Contact</a><a href="#">Privacy Policy</a><a href="#">Terms</a>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© 2026 10 STACKS RESEARCH. ALL RIGHTS RESERVED.</span>
+      <span>DISCLAIMER · PRIVACY · TERMS</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
